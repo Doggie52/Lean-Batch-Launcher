@@ -1,0 +1,4 @@
+[submodule "Util/Command-Line-Encoder"]
+	path = Util/Command-Line-Encoder
+	url = https://github.com/ericpopivker/Command-Line-Encoder.git
+	branch = master

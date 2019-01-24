@@ -1,0 +1,29 @@
+{
+	"LibraryPath": "",
+
+	"ApiJobUserId": "",
+
+	"ApiAccessToken": "",
+
+	"ParallelProcesses": 2,
+
+	"StartDate": "",
+
+	"Duration": 12,
+
+	"AlphaModelNames": [
+		
+	],
+
+	"MinuteResolutions": [
+		
+	],
+
+	"Symbols": [
+		
+	],
+
+	"Parameters": {
+		
+	}
+}
