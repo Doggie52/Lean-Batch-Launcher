@@ -25,112 +25,18 @@ The software has only been tested on Windows but may work fine on Linux and Mac.
 
 The various options are below:
 
- * **`LibraryPath`**
-   > Path to the root folder of the Lean project, i.e. where the `Launcher` and `Data` folders reside.
-   >
-   > Example: `"LibraryPath": "C:\\Users\\John\\Algorithm\\Lib\\Lean"`
-   >
-   > Remember to use double backslashes (`\\`) to separate folders.
- 
- * **`ApiJobUserId`**
-   > Your API job user ID. Same as in Lean's `config.json`.
-   >
-   > Example: `"ApiJobUserId": "32476"`
- 
- * **`ApiAccessToken`**
-   > Your API access token. Same as in Lean's `config.json`.
-   >
-   > Example: `"ApiAccessToken": "O8dLVxwKhXpl4JiIfHWP25eIkgs8LY3r"`
- 
- * **`ParallelProcesses`**
-   > How many processes your computer can handle in parallel. Must be less than or equal to the number of virtual CPU cores available.
-   >
-   > Example: `"ParallelProcesses": 7`
- 
- * **`StartDate`**
-   > The starting date of the first instance, expressed as "dd mmm yyyy" (or any other format that `DateTime` can parse).
-   >
-   > Example: `"StartDate": "01 Jan 2018"`
-   >
-   > Usage in algorithm: `SetStartDate( DateTime.Parse( Config.Get( "LBL-start-date" ) ) );`
- 
- * **`Duration`**
-   > The length of each backtest (in months). Only integers allowed.
-   >
-   > Example: `"Duration": 12`
- 
- * **`AlphaModelNames`**
-   > An array of strings corresponding to the `Name` property of each Alpha you intend to run. Each Alpha you specify here must already have been created in your algorithm's main file.
-   >
-   > Example:
-      ```
-      "AlphaModelNames": [
-            "Alpha1(A=3,B=2)",
-            "Alpha1(A=1,B=4)",
-            "Alpha2(D=6)"
-         ]
-      ```
-   >
-   > Usage in algorithm: `SetAlpha( Config.Get( "LBL-alpha-model-name" ) );`
- 
- * **`MinuteResolutions`**
-   > An array of integers corresponding to different minute resolutions to pass to the algorithm, one at a time.
-   >
-   > Example:
-      ```
-      "MinuteResolutions": [
-         30,
-         60,
-         120
-      ]
-      ```
-   >
-   > Usage in algorithm: `int minuteResolution = Config.GetInt( "LBL-minute-resolution" );`. You could then pass this into e.g. a consolidator.
- 
- * **`Symbols`**
-   > An array of symbol strings to pass to the algorithm, one at a time.
-   >
-   > Example:
-      ```
-      "Symbols": [
-         "EURUSD",
-         "CORNUSD",
-         "USDHKD"
-      ]
-      ```
-   >
-   > Usage in algorithm: `SetUniverseSelection( new ManualUniverseSelectionModel( QuantConnect.Symbol.Create( Config.Get( "LBL-symbol" ), SecurityType.Equity, Market.USA ) ) );`
- 
- * **`Parameters`**
-   > Allows you to pass in either a *step* or *factor* range:
-   >
-   > **Step range:** Will step through a parameter from `Start` to `End` in fixed increments of `Step`. Example:
-      ```
-      "Parameters": {
-         "LBL-band-width": {
-            "Start": 2,
-            "End": 5,
-            "Step": 0.5
-         }
-      }
-      ```
-   > *Will yield `LBL-band-width` of 2, 2.5, 3, 3.5, 4, 4.5 and 5.*
-   >
-   > Usage in algorithm: `var bandWidth = Config.GetDouble( "band-width" );`.
-   >
-   > **Factor range:** Will step through a parameter from `Start` to `End` in factors of `Factor`. Example:
-      ```
-      "Parameters": {
-         "LBL-lookback-period": {
-            "Start": 4,
-            "End": 64,
-            "Factor": 2
-         }
-      }
-      ```
-   > *Will yield `LBL-lookback-period` of 4, 8, 16, 32 and 64.*
-   >
-   > Usage in algorithm: `var bandWidth = Config.GetInt( "lookback-period" );`.
+| Parameter | Description and usage |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **`LibraryPath`** | Path to the root folder of the Lean project, i.e. where the `Launcher` and `Data` folders reside. <br><br> Example: `"LibraryPath": "C:\\Users\\John\\Algorithm\\Lib\\Lean"` <br> <br> Remember to use double backslashes (`\\`) to separate folders. |
+| **`ApiJobUserId`** | Your API job user ID. Same as in Lean's `config.json`. <br><br> Example: `"ApiJobUserId": "32476"` |
+| **`ApiAccessToken`** | Your API access token. Same as in Lean's `config.json`. <br><br> Example: `"ApiAccessToken": "O8dLVxwKhXpl4JiIfHWP25eIkgs8LY3r"` |
+| **`ParallelProcesses`** | How many processes your computer can handle in parallel. Must be less than or equal to the number of virtual CPU cores available. <br><br> Example: `"ParallelProcesses": 7` |
+| **`StartDate`** | The starting date of the first instance, expressed as "dd mmm yyyy" (or any other format that `DateTime` can parse). <br><br> Example: `"StartDate": "01 Jan 2018"` <br><br> Usage in algorithm: `SetStartDate( DateTime.Parse( Config.Get( "LBL-start-date" ) ) );` |
+| **`Duration`** | The length of each backtest (in months). Only integers allowed. <br><br> Example: `"Duration": 12` |
+| **`AlphaModelNames`** | An array of strings corresponding to the `Name` property of each Alpha you intend to run. Each Alpha you specify here must already have been created in your algorithm's main file. <br><br> Example: ``` "AlphaModelNames": [ "Alpha1(A=3,B=2)", "Alpha1(A=1,B=4)", "Alpha2(D=6)" ] ``` <br><br> Usage in algorithm: `SetAlpha( Config.Get( "LBL-alpha-model-name" ) );` |
+| **`MinuteResolutions`** | An array of integers corresponding to different minute resolutions to pass to the algorithm, one at a time. <br><br> Example: ``` "MinuteResolutions": [    30,    60,    120 ] ``` <br><br> Usage in algorithm: `int minuteResolution = Config.GetInt( "LBL-minute-resolution" );`. You could then pass this into e.g. a consolidator. |
+| **`Symbols`** | An array of symbol strings to pass to the algorithm, one at a time. <br><br> Example: ``` "Symbols": [ "EURUSD", "CORNUSD", "USDHKD" ] ``` <br><br> Usage in algorithm: `SetUniverseSelection( new ManualUniverseSelectionModel( QuantConnect.Symbol.Create( Config.Get( "LBL-symbol" ), SecurityType.Equity, Market.USA ) ) );` |
+| **`Parameters`** | Allows you to pass in either a *step* or *factor* range: <br><br> **Step range:** Will step through a parameter from `Start` to `End` in fixed increments of `Step`. Example: ``` "Parameters": { "LBL-band-width": { "Start": 2, "End": 5, "Step": 0.5 } } ``` <br> *Will yield `LBL-band-width` of 2, 2.5, 3, 3.5, 4, 4.5 and 5.* <br> <br> Usage in algorithm: `var bandWidth = Config.GetDouble( "band-width" );`. <br> <br> **Factor range:** Will step through a parameter from `Start` to `End` in factors of `Factor`. Example: ``` "Parameters": { "LBL-lookback-period": { "Start": 4, "End": 64, "Factor": 2 } } ``` <br> *Will yield `LBL-lookback-period` of 4, 8, 16, 32 and 64.* <br> <br> Usage in algorithm: `var bandWidth = Config.GetInt( "lookback-period" );`. |
 
 ## Contributing
 
