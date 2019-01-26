@@ -73,7 +73,7 @@ namespace LeanBatchLauncher.Instance
 
 				// Configure path to and name of algorithm
 				Config.Set( "algorithm-type-name", "BasicTemplateFrameworkAlgorithm" );
-				Config.Set( "algorithm-location", "QuantConnect.Algorithm.CSharp.dll" );
+				Config.Set( "algorithm-location", "Algorithm.dll" );
 
 				// Set some values local to this Launcher
 				Config.Set( "environment", "backtesting" );

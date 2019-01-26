@@ -106,6 +106,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Algorithm\Algorithm.csproj">
+      <Project>{5da1f8de-ece5-4901-873e-bcc7985714f0}</Project>
+      <Name>Algorithm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Launcher\Launcher.csproj">
       <Project>{3f2f787e-674e-436c-8e0a-ebb7075aec92}</Project>
       <Name>Launcher</Name>

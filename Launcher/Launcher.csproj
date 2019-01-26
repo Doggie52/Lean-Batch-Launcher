@@ -54,8 +54,6 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="QuantConnect.Algorithm.CSharp">
-    </Reference>
     <Reference Include="QuantConnect.Common">
     </Reference>
     <Reference Include="QuantConnect.Configuration">
@@ -109,6 +107,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Algorithm\Algorithm.csproj">
+      <Project>{5da1f8de-ece5-4901-873e-bcc7985714f0}</Project>
+      <Name>Algorithm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
       <Project>{1B671973-B44D-4125-9599-73318207C2AB}</Project>
       <Name>Util</Name>
