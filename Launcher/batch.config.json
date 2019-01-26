@@ -5,25 +5,37 @@
 
 	"ApiAccessToken": "",
 
-	"ParallelProcesses": 2,
+	"ParallelProcesses": 8,
 
-	"StartDate": "",
+	"StartDate": "01 Jan 2018",
 
 	"Duration": 12,
 
 	"AlphaModelNames": [
-		
+		"ALL"
 	],
 
 	"MinuteResolutions": [
-		
+		60
 	],
 
 	"Symbols": [
-		
+		"EURUSD",
+		"GBPUSD"
 	],
 
 	"Parameters": {
+
+		"LBL-ema-fast": {
+			"Start": 10,
+			"End": 16,
+			"Step": 3
+		},
 		
+		"LBL-ema-slow": {
+			"Start": 20,
+			"End": 50,
+			"Step": 10
+		}
 	}
 }

@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="QuantConnect.Common">
     </Reference>
+    <Reference Include="QuantConnect.Configuration">
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

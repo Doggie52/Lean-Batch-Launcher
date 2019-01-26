@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 
 using QuantConnect;
+using QuantConnect.Configuration;
 using QuantConnect.Algorithm.Framework;
 using QuantConnect.Algorithm.Framework.Alphas;
 using QuantConnect.Algorithm.Framework.Execution;
@@ -26,22 +28,32 @@ namespace Algorithm
 		{
 			// Set requested data resolution
 			UniverseSettings.Resolution = Resolution.Minute;
+			// Note: Config.GetInt( "LBL-minute-resolution" ) is available to use for consolidators
 
-			SetStartDate( 2013, 10, 07 );  //Set Start Date
-			SetEndDate( 2013, 10, 11 );    //Set End Date
-			SetCash( 100000 );             //Set Strategy Cash
+			// Set start and end date
+			SetStartDate( DateTime.Parse( Config.Get( "LBL-start-date" ) ) );
+			SetEndDate( DateTime.Parse( Config.Get( "LBL-end-date" ) ) );
 
-			// Find more symbols here: http://quantconnect.com/data
-			// Forex, CFD, Equities Resolutions: Tick, Second, Minute, Hour, Daily.
-			// Futures Resolution: Tick, Second, Minute
-			// Options Resolution: Minute Only.
+			// Set universe
+			SetUniverseSelection( new ManualUniverseSelectionModel( QuantConnect.Symbol.Create( Config.Get( "LBL-symbol" ), SecurityType.Forex, Market.Oanda ) ) );
 
-			// set algorithm framework models
-			SetUniverseSelection( new ManualUniverseSelectionModel( QuantConnect.Symbol.Create( "SPY", SecurityType.Equity, Market.USA ) ) );
-			SetAlpha( new ConstantAlphaModel( InsightType.Price, InsightDirection.Up, TimeSpan.FromMinutes( 20 ), 0.025, null ) );
+			// Get alpha parameters
+			int fastEma = Config.GetInt( "LBL-ema-fast" );
+			int slowEma = Config.GetInt( "LBL-ema-slow" );
+
+			// Initialise available alphas
+			var availableAlphas = new IAlphaModel[]{
+				new EmaCrossAlphaModel( fastEma, slowEma, Resolution.Minute )
+			};
+
+			// Set the alpha, for now we're assuming "ALL" has been passed
+			if ( Config.Get( "LBL-alpha-model-name" ) == "ALL" )
+				SetAlpha( new CompositeAlphaModel( availableAlphas ) );
+
+			// Set remaining models
 			SetPortfolioConstruction( new EqualWeightingPortfolioConstructionModel() );
 			SetExecution( new ImmediateExecutionModel() );
-			SetRiskManagement( new MaximumDrawdownPercentPerSecurity( 0.01m ) );
+			SetRiskManagement( new NullRiskManagementModel() );
 		}
 
 		public override void OnOrderEvent( OrderEvent orderEvent )
