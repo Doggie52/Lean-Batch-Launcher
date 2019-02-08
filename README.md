@@ -12,15 +12,17 @@ The software has only been tested on Windows but may work fine on Linux and Mac.
 
 ### Installing
 
-1. Make sure Lean builds properly.
+1. Make sure Lean builds and runs properly.
 1. Clone the repository into a directory of choice. Ideally, this is not a folder inside the Lean folder.
 1. Open [`LeanBatchLauncher.sln`](LeanBatchLauncher.sln) in Visual Studio and add necessary references to your pre-existing Lean project.
-   1. Trying to compile will tell you what references you need. Keep adding references in both the `Launcher` and `Instance` projects to Lean's DLL files until you can compile successfully. You will need (at least) `Common`, `Configuration`, `Lean.Engine`, `Logging`, `Messaging` and `Queues`. To build the sample algorithm, you will also need `Algorithm` and `Algorithm.Framework`. The existing references (without a `HintPath`) should be a guide to what's needed.
+   1. Trying to compile will tell you what references you need. Keep adding references in both the `Algorithm`, `Launcher` and `Instance` projects to Lean's DLL files until you can compile successfully. You will need (at least) `Common`, `Configuration`, `Lean.Engine`, `Logging`, `Messaging` and `Queues`. To build the sample algorithm, you will also need `Algorithm` and `Algorithm.Framework`. The existing references (included without a `HintPath`) should be a guide to what's needed.
 1. Edit [`Instance/Program.cs`](Instance/Program.cs) lines 75 and 76 to set the correct path to and name of the algorithm to be batched. By default, the `BasicTemplateFrameworkAlgorithm` is referenced.
 1. Ensure [`Launcher/data-start-date-by-symbol.json`](Launcher/data-start-date-by-symbol.json) is filled in appropriately. Each Symbol to be used in the Launcher must have its earliest start date specified.
 1. Open [`Launcher/batch.config.json`](Launcher/batch.config.json) and follow the reference guide below to configure it properly.
 1. See [`Algorithm/BasicTemplateFrameworkAlgorithm.cs`](Algorithm/BasicTemplateFrameworkAlgorithm.cs) for an example algorithm that makes use of some of the Launcher's functionality. For more examples, see *Usage in algorithm* sections below.
-1. Build the `Launcher` project if it's not already selected by default.
+1. Build (`F6`) the `Launcher` project once if it's not already selected by default, to ensure files are copied appropriately.
+
+Done! You can now run the `Launcher` as you please.
 
 ## Configuring a batch in `batch.config.json`
 
