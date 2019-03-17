@@ -23,9 +23,12 @@ namespace LeanBatchLauncher.Util
 			if ( step == 0 )
 				throw new ArgumentException( "Parameter step cannot equal zero." );
 
+			// Get epsilon sufficiently small
+			var epsilon = Math.Pow( 10, Math.Floor( Math.Log10( step ) ) - 3 );
+
 			// Step through the range
 			if ( start < end && step > 0 ) {
-				for ( var x = start; x - end <= 0; x += step ) {
+				for ( var x = start; x - end <= epsilon; x += step ) {
 					yield return x;
 				}
 			} else {
