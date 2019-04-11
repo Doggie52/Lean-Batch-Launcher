@@ -1,6 +1,6 @@
 ![LEAN Batch Launcher](https://user-images.githubusercontent.com/4928988/51481977-1fa4d080-1d8d-11e9-85f2-9ad344d95737.PNG)
 
-*LEAN Batch Launcher* is an unofficial, alternative launcher for [QuantConnect's Lean Engine](https://github.com/quantconnect/lean) enabling batching/looping of algorithms in parallel with different start/end dates, securities, Alphas, data resolutions and (most importantly) parameters.
+*Lean Batch Launcher* is an unofficial, alternative launcher for [QuantConnect's Lean Engine](https://github.com/quantconnect/lean) enabling batching/looping of algorithms in parallel with different start/end dates, securities, Alphas, data resolutions and (most importantly) parameters.
 
 ## Getting Started
 
