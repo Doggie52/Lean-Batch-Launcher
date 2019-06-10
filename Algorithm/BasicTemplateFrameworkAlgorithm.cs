@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Linq;
 
 using QuantConnect;
-using QuantConnect.Configuration;
-using QuantConnect.Algorithm.Framework;
+using QuantConnect.Algorithm;
 using QuantConnect.Algorithm.Framework.Alphas;
 using QuantConnect.Algorithm.Framework.Execution;
 using QuantConnect.Algorithm.Framework.Portfolio;
 using QuantConnect.Algorithm.Framework.Risk;
 using QuantConnect.Algorithm.Framework.Selection;
+using QuantConnect.Configuration;
 using QuantConnect.Orders;
 
 namespace Algorithm
@@ -19,7 +18,7 @@ namespace Algorithm
 	/// <meta name="tag" content="using data" />
 	/// <meta name="tag" content="using quantconnect" />
 	/// <meta name="tag" content="trading and orders" />
-	public class BasicTemplateFrameworkAlgorithm : QCAlgorithmFramework
+	public class BasicTemplateFrameworkAlgorithm : QCAlgorithm
 	{
 		/// <summary>
 		/// Initialise the data and resolution required, as well as the cash and start-end dates for your algorithm. All algorithms must initialized.
