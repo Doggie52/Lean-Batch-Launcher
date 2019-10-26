@@ -143,7 +143,7 @@ namespace LeanBatchLauncher.Instance
 				}
 
 				try {
-					var algorithmManager = new AlgorithmManager( false );
+					var algorithmManager = new AlgorithmManager( false, job );
 
 					leanEngineSystemHandlers.LeanManager.Initialize( leanEngineSystemHandlers, leanEngineAlgorithmHandlers, job, algorithmManager );
 
