@@ -20,7 +20,8 @@ The software has only been tested on Windows but may work fine on Linux and Mac.
 1. Ensure [`Launcher/data-start-date-by-symbol.json`](Launcher/data-start-date-by-symbol.json) is filled in appropriately. Each Symbol to be used in the Launcher must have its earliest start date specified.
 1. Open [`Launcher/batch.config.json`](Launcher/batch.config.json) and follow the reference guide below to configure it properly.
 1. See [`Algorithm/BasicTemplateFrameworkAlgorithm.cs`](Algorithm/BasicTemplateFrameworkAlgorithm.cs) for an example algorithm that makes use of some of the Launcher's functionality. For more examples, see *Usage in algorithm* sections below.
-1. Build (`F6`) the `Launcher` project once if it's not already selected by default, to ensure files are copied appropriately.
+1. Selecting the `Instance` project as the _Startup Project_ and build it (`F6`) once.
+1. Select the `Launcher` project as the _Startup Project_  and build it (`F6`) once to ensure files are copied appropriately.
 
 Done! You can now run the `Launcher` as you please.
 
